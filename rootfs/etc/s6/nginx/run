@@ -11,3 +11,7 @@ then
 fi
 
 exec /usr/sbin/nginx
+
+pushd /srv/www > /dev/null
+exec /usr/sbin/nginx
+popd > /dev/null

@@ -1,6 +1,6 @@
 listen 8080;
 
-root /srv/www;
+root {{ envString "WEBROOT" }};
 index index.html index.htm;
 
 disable_symlinks off;

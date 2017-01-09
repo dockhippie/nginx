@@ -28,6 +28,5 @@ then
   /bin/s6-svscanctl -t /etc/s6
 fi
 
-chown -R nginx:nginx \
-  /srv/www \
-  /var/lib/nginx
+find /srv/www \( \! -user nginx -o \! -group nginx \) -print0 | xargs -0 chown nginx:nginx
+find /var/lib/nginx \( \! -user nginx -o \! -group nginx \) -print0 | xargs -0 chown nginx:nginx

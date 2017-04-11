@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+declare -x NGINX_WORKER_PROCESSES
+[[ -z "${NGINX_WORKER_PROCESSES}" ]] && NGINX_WORKER_PROCESSES="5"
+
+declare -x NGINX_WORKER_CONNECTIONS
+[[ -z "${NGINX_WORKER_CONNECTIONS}" ]] && NGINX_WORKER_CONNECTIONS="4096"
+
+declare -x NGINX_SENDFILE
+[[ -z "${NGINX_SENDFILE}" ]] && NGINX_SENDFILE="on"
+
+declare -x NGINX_TCP_NOPUSH
+[[ -z "${NGINX_TCP_NOPUSH}" ]] && NGINX_TCP_NOPUSH="on"
+
+declare -x NGINX_WEBROOT
+[[ -z "${NGINX_WEBROOT}" ]] && NGINX_WEBROOT="/srv/www"

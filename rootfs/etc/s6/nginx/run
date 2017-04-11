@@ -10,13 +10,14 @@ then
   source ./custom
 fi
 
-for FILE in custom.d/*.sh
-do
-  source ${FILE}
-done
-
-exec /usr/sbin/nginx
+if [ -d ./custom.d ]
+then
+  for FILE in ./custom.d/*.sh
+  do
+    source ${FILE}
+  done
+fi
 
 pushd /srv/www > /dev/null
-exec /usr/sbin/nginx
+  exec /usr/sbin/nginx
 popd > /dev/null

@@ -1,6 +1,7 @@
 #!/bin/bash
 source /usr/local/bin/entrypoint
 
+echo "> writing nginx config"
 /usr/bin/templater -d -p nginx \
   -o /etc/nginx/nginx.conf \
   /etc/templates/nginx.conf.tmpl
@@ -8,8 +9,10 @@ source /usr/local/bin/entrypoint
 if [[ $? -ne 0 ]]
 then
   /bin/s6-svscanctl -t /etc/s6
+  exit 1
 fi
 
+echo "> writing host config"
 /usr/bin/templater -d -p nginx \
   -o /etc/nginx/host.conf \
   /etc/templates/host.conf.tmpl
@@ -17,7 +20,9 @@ fi
 if [[ $? -ne 0 ]]
 then
   /bin/s6-svscanctl -t /etc/s6
+  exit 1
 fi
 
-find /srv/www \( \! -user nginx -o \! -group nginx \) -print0 | xargs -0 chown nginx:nginx
-find /var/lib/nginx \( \! -user nginx -o \! -group nginx \) -print0 | xargs -0 chown nginx:nginx
+echo "> chown files"
+find /srv/www \( \! -user nginx -o \! -group nginx \) -print0 | xargs -0 -r chown nginx:nginx
+find /var/lib/nginx \( \! -user nginx -o \! -group nginx \) -print0 | xargs -0 -r chown nginx:nginx

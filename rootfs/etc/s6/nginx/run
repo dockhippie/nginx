@@ -19,6 +19,6 @@ then
 fi
 
 pushd /srv/www > /dev/null
-  echo "> starting nginx"
+  echo "> starting nginx service"
   exec /usr/sbin/nginx
 popd > /dev/null

@@ -1,10 +1,8 @@
 #!/bin/bash
-source /usr/local/bin/entrypoint
+source /usr/bin/entrypoint
 
 echo "> writing nginx config"
-/usr/bin/templater -d -p nginx \
-  -o /etc/nginx/nginx.conf \
-  /etc/templates/nginx.conf.tmpl
+/usr/bin/templater -d -p nginx -o /etc/nginx/nginx.conf /etc/templates/nginx.conf.tmpl
 
 if [[ $? -ne 0 ]]
 then
@@ -13,9 +11,7 @@ then
 fi
 
 echo "> writing host config"
-/usr/bin/templater -d -p nginx \
-  -o /etc/nginx/host.conf \
-  /etc/templates/host.conf.tmpl
+/usr/bin/templater -d -p nginx -o /etc/nginx/host.conf /etc/templates/host.conf.tmpl
 
 if [[ $? -ne 0 ]]
 then
@@ -23,6 +19,8 @@ then
   exit 1
 fi
 
-echo "> chown files"
+echo "> chown webroot files"
 find /srv/www \( \! -user nginx -o \! -group nginx \) -print0 | xargs -0 -r chown nginx:nginx
+
+echo "> chown nginx files"
 find /var/lib/nginx \( \! -user nginx -o \! -group nginx \) -print0 | xargs -0 -r chown nginx:nginx

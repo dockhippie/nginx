@@ -14,3 +14,18 @@ declare -x NGINX_TCP_NOPUSH
 
 declare -x NGINX_WEBROOT
 [[ -z "${NGINX_WEBROOT}" ]] && NGINX_WEBROOT="/srv/www"
+
+declare -x NGINX_DEFAULT_HOST
+[[ -z "${NGINX_DEFAULT_HOST}" ]] && NGINX_DEFAULT_HOST="true"
+
+declare -x NGINX_SKIP_TEMPLATES
+[[ -z "${NGINX_SKIP_TEMPLATES}" ]] && NGINX_SKIP_TEMPLATES="false"
+
+declare -x NGINX_SKIP_CHOWN
+[[ -z "${NGINX_SKIP_CHOWN}" ]] && NGINX_SKIP_CHOWN="false"
+
+declare -x NGINX_HEALTHCHECK_URL
+[[ -z "${NGINX_HEALTHCHECK_URL}" ]] && NGINX_HEALTHCHECK_URL="http://localhost:8080/"
+
+declare -x NGINX_HEALTHCHECK_CODE
+[[ -z "${NGINX_HEALTHCHECK_CODE}" ]] && NGINX_HEALTHCHECK_CODE="200"

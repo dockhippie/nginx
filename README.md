@@ -7,7 +7,7 @@ These are docker images for [Nginx](https://nginx.org/) running on an [Alpine Li
 
 ## Versions
 
-* [latest](https://github.com/dockhippie/nginx/tree/master) available as ```webhippie/nginx:latest``` at [Docker Hub](https://registry.hub.docker.com/u/webhippie/nginx/)
+To get an overview about the available versions please take a look at the [GitHub branches](https://github.com/dockhippie/nginx/branches/all) or our [Docker Hub tags](https://hub.docker.com/r/webhippie/nginx/tags/), these lists are always up to date.
 
 
 ## Volumes
@@ -28,6 +28,9 @@ ENV NGINX_WORKER_CONNECTIONS 4096
 ENV NGINX_SENDFILE on
 ENV NGINX_TCP_NOPUSH on
 ENV NGINX_WEBROOT /srv/www
+ENV NGINX_DEFAULT_HOST true
+ENV NGINX_SKIP_TEMPLATES false
+ENV NGINX_SKIP_CHOWN false
 ```
 
 
@@ -54,5 +57,5 @@ MIT
 ## Copyright
 
 ```
-Copyright (c) 2015-2017 Thomas Boerger <http://www.webhippie.de>
+Copyright (c) 2018 Thomas Boerger <http://www.webhippie.de>
 ```

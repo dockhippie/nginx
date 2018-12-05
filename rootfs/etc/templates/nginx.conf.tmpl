@@ -28,7 +28,9 @@ http {
 
   include /etc/nginx/custom.d/*.conf;
 
+{{ if eq (envBool "DEFAULT_HOST") true }}
   server {
     include /etc/nginx/host.conf;
   }
+{{ end }}
 }

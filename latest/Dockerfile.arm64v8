@@ -1,4 +1,4 @@
-FROM webhippie/alpine:latest
+FROM webhippie/alpine:latest-arm64v8
 
 LABEL maintainer="Thomas Boerger <thomas@webhippie.de>" \
   org.label-schema.name="Nginx" \
@@ -33,4 +33,4 @@ RUN apk update && \
     /var/cache/apk/* \
     /etc/nginx/*
 
-ADD rootfs /
+COPY ./overlay ./overlay-arm64v8 /

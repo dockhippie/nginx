@@ -1,5 +1,6 @@
 # Nginx
 
+[![Build Status](https://cloud.drone.io/api/badges/dockhippie/nginx/status.svg)](https://cloud.drone.io/dockhippie/nginx)
 [![](https://images.microbadger.com/badges/image/webhippie/nginx.svg)](https://microbadger.com/images/webhippie/nginx "Get your own image badge on microbadger.com")
 
 These are docker images for [Nginx](https://nginx.org/) running on an [Alpine Linux container](https://registry.hub.docker.com/u/webhippie/alpine/).
@@ -7,7 +8,7 @@ These are docker images for [Nginx](https://nginx.org/) running on an [Alpine Li
 
 ## Versions
 
-To get an overview about the available versions please take a look at the [GitHub branches](https://github.com/dockhippie/nginx/branches/all) or our [Docker Hub tags](https://hub.docker.com/r/webhippie/nginx/tags/), these lists are always up to date.
+* [latest](./latest) available as `webhippie/nginx:latest`
 
 
 ## Volumes

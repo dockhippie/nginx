@@ -4,22 +4,22 @@ user nginx nginx;
 error_log stderr warn;
 
 pid /var/run/nginx.pid;
-worker_processes {{ envString "WORKER_PROCESSES" }};
+worker_processes {{ getenv "NGINX_WORKER_PROCESSES" }};
 
 events {
-  worker_connections {{ envString "WORKER_CONNECTIONS" }};
+  worker_connections {{ getenv "NGINX_WORKER_CONNECTIONS" }};
 }
 
 http {
   access_log /dev/stdout;
-  sendfile {{ envString "SENDFILE" }};
+  sendfile {{ getenv "NGINX_SENDFILE" }};
 
   include /etc/nginx/mime.types;
   include /etc/nginx/fastcgi.conf;
 
   default_type application/octet-stream;
 
-  tcp_nopush {{ envString "TCP_NOPUSH" }};
+  tcp_nopush {{ getenv "NGINX_TCP_NOPUSH" }};
 
   client_body_temp_path /var/lib/nginx/client_body 1 2;
   fastcgi_temp_path /var/lib/nginx/fastcgi_temp 1 2;
@@ -28,7 +28,7 @@ http {
 
   include /etc/nginx/custom.d/*.conf;
 
-{{ if eq (envBool "DEFAULT_HOST") true }}
+{{ if bool (getenv "NGINX_DEFAULT_HOST") }}
   server {
     include /etc/nginx/host.conf;
   }

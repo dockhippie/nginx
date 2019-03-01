@@ -4,7 +4,9 @@ source /usr/bin/entrypoint
 if [[ "${NGINX_SKIP_TEMPLATES}" != "true" ]]
 then
   echo "> writing nginx config"
-  /usr/bin/templater -d -p nginx -o /etc/nginx/nginx.conf /etc/templates/nginx.conf.tmpl
+  /usr/bin/gomplate -V \
+    -o /etc/nginx/nginx.conf \
+    -f /etc/templates/nginx.conf.tmpl
 
   if [[ $? -ne 0 ]]
   then
@@ -13,7 +15,9 @@ then
   fi
 
   echo "> writing host config"
-  /usr/bin/templater -d -p nginx -o /etc/nginx/host.conf /etc/templates/host.conf.tmpl
+  /usr/bin/gomplate -V \
+    -o /etc/nginx/host.conf \
+    -f /etc/templates/host.conf.tmpl
 
   if [[ $? -ne 0 ]]
   then

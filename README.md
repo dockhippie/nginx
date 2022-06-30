@@ -1,21 +1,24 @@
 # nginx
 
-[![Docker Build](https://github.com/dockhippie/nginx/workflows/docker/badge.svg)](https://github.com/dockhippie/nginx/actions?query=workflow%3Adocker) [![Readme Build](https://github.com/dockhippie/nginx/workflows/readme/badge.svg)](https://github.com/dockhippie/nginx/actions?query=workflow%3Areadme) [![Docker Size](https://img.shields.io/docker/image-size/webhippie/nginx/latest)](#) [![Docker Pulls](https://img.shields.io/docker/pulls/webhippie/nginx)](https://hub.docker.com/r/webhippie/nginx) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/nginx)
+[![Docker Build](https://github.com/dockhippie/nginx/actions/workflows/docker.yml/badge.svg)](https://github.com/dockhippie/nginx/actions/workflows/docker.yml) [![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/dockhippie/nginx)
 
-These are docker images for [Nginx](https://nginx.org/) running on our [Alpine Linux image](https://github.com/dockhippie/alpine).
+These are docker images for [Nginx][upstream] running on our
+[Alpine Linux image][parent].
 
 ## Versions
 
-For the available versions please look at [Docker Hub](https://hub.docker.com/r/webhippie/nginx/tags) or [Quay](https://quay.io/repository/webhippie/nginx?tab=tags) or check the existing folders within the [GitHub repository](https://github.com/dockhippie/nginx).
+For the available versions please look at [Docker Hub][dockerhub] or
+[Quay][quayio] or check the existing folders within the
+[GitHub repository][github].
 
 ## Volumes
 
-* /srv/www
-* /etc/nginx/custom.d
+*  /srv/www
+*  /etc/nginx/custom.d
 
 ## Ports
 
-* 8080
+*  8080
 
 ## Available environment variables
 
@@ -51,3 +54,9 @@ MIT
 ```console
 Copyright (c) 2018 Thomas Boerger <http://www.webhippie.de>
 ```
+
+[upstream]: https://nginx.org
+[parent]: https://github.com/dockhippie/alpine
+[dockerhub]: https://hub.docker.com/r/webhippie/nginx/tags
+[quayio]: https://quay.io/repository/webhippie/nginx?tab=tags
+[github]: https://github.com/dockhippie/nginx

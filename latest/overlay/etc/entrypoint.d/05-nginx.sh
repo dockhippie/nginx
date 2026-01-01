@@ -1,33 +1,31 @@
 #!/usr/bin/env bash
 
 declare -x NGINX_WORKER_PROCESSES
-[[ -z "${NGINX_WORKER_PROCESSES}" ]] && NGINX_WORKER_PROCESSES="5"
+: "${NGINX_WORKER_PROCESSES:="5"}"
 
 declare -x NGINX_WORKER_CONNECTIONS
-[[ -z "${NGINX_WORKER_CONNECTIONS}" ]] && NGINX_WORKER_CONNECTIONS="4096"
+: "${NGINX_WORKER_CONNECTIONS:="4096"}"
 
 declare -x NGINX_SENDFILE
-[[ -z "${NGINX_SENDFILE}" ]] && NGINX_SENDFILE="on"
+: "${NGINX_SENDFILE:="on"}"
 
 declare -x NGINX_TCP_NOPUSH
-[[ -z "${NGINX_TCP_NOPUSH}" ]] && NGINX_TCP_NOPUSH="on"
+: "${NGINX_TCP_NOPUSH:="on"}"
 
 declare -x NGINX_WEBROOT
-[[ -z "${NGINX_WEBROOT}" ]] && NGINX_WEBROOT="/srv/www"
+: "${NGINX_WEBROOT:="/srv/www"}"
 
 declare -x NGINX_DEFAULT_HOST
-[[ -z "${NGINX_DEFAULT_HOST}" ]] && NGINX_DEFAULT_HOST="true"
+: "${NGINX_DEFAULT_HOST:="true"}"
 
 declare -x NGINX_SKIP_TEMPLATES
-[[ -z "${NGINX_SKIP_TEMPLATES}" ]] && NGINX_SKIP_TEMPLATES="false"
+: "${NGINX_SKIP_TEMPLATES:="false"}"
 
 declare -x NGINX_SKIP_CHOWN
-[[ -z "${NGINX_SKIP_CHOWN}" ]] && NGINX_SKIP_CHOWN="false"
+: "${NGINX_SKIP_CHOWN:="false"}"
 
 declare -x NGINX_HEALTHCHECK_URL
-[[ -z "${NGINX_HEALTHCHECK_URL}" ]] && NGINX_HEALTHCHECK_URL="http://localhost:8080/"
+: "${NGINX_HEALTHCHECK_URL:="http://localhost:8080/"}"
 
 declare -x NGINX_HEALTHCHECK_CODE
-[[ -z "${NGINX_HEALTHCHECK_CODE}" ]] && NGINX_HEALTHCHECK_CODE="200"
-
-true
+: "${NGINX_HEALTHCHECK_CODE:="200"}"

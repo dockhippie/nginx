@@ -24,6 +24,8 @@ For the available versions please look at [Docker Hub][dockerhub] or
 
 ```console
 NGINX_DEFAULT_HOST = true
+NGINX_HEALTHCHECK_CODE = 200
+NGINX_HEALTHCHECK_URL = http://localhost:8080/
 NGINX_SENDFILE = on
 NGINX_SKIP_CHOWN = false
 NGINX_SKIP_TEMPLATES = false
@@ -32,6 +34,8 @@ NGINX_WEBROOT = /srv/www
 NGINX_WORKER_CONNECTIONS = 4096
 NGINX_WORKER_PROCESSES = 5
 ```
+
+Extracted by the command: `grep -hE ': "\$\{(.*)\}"' latest/overlay/etc/entrypoint.d/*.sh | sed 's/: "\${//' | sed 's/:="/ = /' | sed 's/"}"$//' | sort | uniq`
 
 ## Inherited environment variables
 

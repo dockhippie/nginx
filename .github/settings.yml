@@ -1,7 +1,7 @@
 ---
 repository:
   name: nginx
-  description: Docker images for nginx
+  description: Docker images for Nginx
   topics: docker, image
 
   private: false

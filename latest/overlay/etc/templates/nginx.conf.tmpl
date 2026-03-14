@@ -28,7 +28,7 @@ http {
 
   include /etc/nginx/custom.d/*.conf;
 
-{{ if bool (getenv "NGINX_DEFAULT_HOST") }}
+{{ if (getenv "NGINX_DEFAULT_HOST") | conv.ToBool }}
   server {
     include /etc/nginx/host.conf;
   }
